@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Game</title>
+    <style>
+       table {
+            border-collapse: collapse;
+        }
+            table, th, td {
+            border: 1px solid black;
+        }
+
+        td {
+            width: 140px;
+            height: 140px;
+        }
+
+        img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        .visible {
+            visibility: visible;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <table id="gameBoard">
+    </table>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const images = [
+            1,2,3,4,5,6,7,8,
+            1,2,3,4,5,6,7,8
+        ];
+
+        let firstCard = null;
+        let secondCard = null;
+        let canClick = true;
+
+        function createGameBoard() {
+            const gameBoard = $('#gameBoard');
+            const shuffledImages = shuffle(images);
+
+            for (let i = 0; i < 4; i++) {
+                const row = $('<tr>');
+                gameBoard.append(row);
+                for (let j = 0; j < 4; j++) {
+                    const cell = $('<td>');
+                    const div = $('<div>');
+                    div.text(shuffledImages[i * 4 + j]);
+                    div.addClass('hidden');
+                    cell.append(div);
+                    cell.click(revealCard);
+                    row.append(cell);
+                }
+            }
+        }
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function revealCard() {
+            if (!canClick || $(this).find('div').hasClass('visible')) return;
+
+            if (!firstCard) {
+                firstCard = $(this).find('div');
+                firstCard.removeClass('hidden');
+                firstCard.addClass('visible');
+            } else {
+                secondCard = $(this).find('div');
+                secondCard.removeClass('hidden');
+                secondCard.addClass('visible');
+                canClick = false;
+                setTimeout(checkMatch, 2000);
+            }
+        }
+
+        function checkMatch() {
+            if (firstCard.text() === secondCard.text()) {
+                firstCard.parent().off('click', revealCard);
+                secondCard.parent().off('click', revealCard);
+            } else {
+                firstCard.removeClass('visible');
+                secondCard.removeClass('visible');
+                firstCard.addClass('hidden');
+                secondCard.addClass('hidden');
+            }
+            firstCard = null;
+            secondCard = null;
+            canClick = true;
+        }
+
+        createGameBoard();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabele</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .container {
+            flex-direction: column;
+        }
+
+        table {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            width: 100%;
+            display: flex;
+        }
+
+        td, th {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <th>Fructe</th>
+                <td>Mere</td>
+                <td>Pere</td>
+                <td>Caise</td>
+                <td>Banane</td>
+            </tr>
+            <tr>
+                <th>Pret</th>
+                <td>3</td>
+                <td>8</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <th>Cantitate</th>
+                <td>11</td>
+                <td>8</td>
+                <td>14</td>
+                <td>2</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>Legume</th>
+                <td>Rosii</td>
+                <td>Cartofi</td>
+                <td>Morcovi</td>
+                <td>Ardei</td>
+            </tr>
+            <tr>
+                <th>Pret</th>
+                <td>12</td>
+                <td>16</td>
+                <td>7</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <th>Cantitate</th>
+                <td>17</td>
+                <td>14</td>
+                <td>7</td>
+                <td>100</td>
+            </tr>
+        </table>
+
+    </div>
+    <script>
+        function bubbleSort(arr, indexArray, isNumeric) {
+            let sorted = false;
+            while (!sorted) {
+                sorted = true;
+                for (let i = 0; i < arr.length - 1; i++) {
+                    let el1 = arr[i].innerHTML;
+                    let el2 = arr[i + 1].innerHTML;
+
+                    if (isNumeric ? parseInt(el1) > parseInt(el2) : el1 > el2) {
+                        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+                        [indexArray[i], indexArray[i + 1]] = [indexArray[i + 1], indexArray[i]];
+                        sorted = false;
+                    }
+                }
+            }
+        }
+
+        function sort(columnHeader) {
+            var sortCriteria = columnHeader.html();
+            var table = columnHeader.closest("table");
+            let toSort = [];
+            table.find("tr").each(function() {
+                if ($(this).find("th").html() === sortCriteria) {
+                    toSort = $(this).find("td").toArray();
+                }
+            });
+
+            var indexArray = [];
+            for (let i = 0; i < toSort.length; i++) {
+                indexArray.push(i);
+            }
+
+            let isNumeric = !isNaN(toSort[0].innerHTML);
+            bubbleSort(toSort, indexArray, isNumeric);
+
+            table.find("tr").each(function() {
+                let row = $(this);
+                let sortRow = new Array(row.find("td, th").length);
+                for (let j = 1; j < row.find("td, th").length; j++) {
+                    sortRow[j] = row.find("td").eq(indexArray[j - 1]).html();
+                }
+                for (let j = 1; j < sortRow.length; j++) {
+                    row.find("td").eq(j - 1).html(sortRow[j]);
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            $("th").click(function() {
+                sort($(this));
+            });
+        });
+    </script>
+</body>
+</html>
+

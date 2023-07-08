@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Produse</title>
+
+    <style>
+      table, td{
+        border: 1px solid black;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <form method="get" action="http://localhost/script_produse.php">
+      Numar produse per pagina:
+      <select name="produse_per_pagina">
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
+      <input type="submit" value="Seteaza" />
+    </form>
+
+  </body>
+</html>

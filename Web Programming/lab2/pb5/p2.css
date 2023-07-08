@@ -1,0 +1,16 @@
+ul{
+    background-color: yellow;
+    border: solid;
+    padding: 20px;
+    width: 80vh;
+}
+
+div{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+p{
+   padding-left: 13px;
+}

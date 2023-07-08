@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem1-v1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            background: linear-gradient(to bottom, rgb(227, 252, 248), #7bff86);
+            margin: 0;
+            overflow: hidden;
+        }
+
+        select{
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Display the routes from selected departure</h1>
+    <div align="center">
+        <label for="departure">Select a departure:</label>
+        <select id="departure" onchange="showRoutes(this.value)">
+            <option value="Bucuresti">Bucuresti</option>
+            <option value="Timisoara">Timisoara</option>
+            <option value="Cluj-Napoca">Cluj-Napoca</option>
+            <option value="Targu-Mures">Targu-Mures</option>
+            <option value="Iasi">Iasi</option>
+            <option value="Suceava">Suceava</option>
+            <option value="Oradea">Oradea</option>
+            <option value="Brasov">Brasov</option>
+            <option value="Constanta">Constanta</option>
+        </select>
+        <br><br>
+        <table id="arrivals" border="1">
+        </table>
+    </div>
+    <script>
+        function showRoutes(str) {
+            var xhttp;
+            if (str == "") {
+                document.getElementById("arrivals").innerHTML = "";
+                return;
+            }
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("arrivals").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "http://localhost/pb1.php?departure=" + str, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

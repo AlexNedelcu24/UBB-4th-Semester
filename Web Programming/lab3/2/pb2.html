@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Formular validare</title>
+    <style>
+      .error-border {
+        border-color: red;
+      }
+    </style>
+  </head>
+  <body>
+
+  <form id="form">
+    Nume: <input type="text" id="name" name="name"> </input>
+    <br>
+    Data nașterii: <input type="date" id="birthdate" name="birthdate"> </input>
+    <br>
+    Vârsta: <input type="text" id="age" name="age"> </input>
+    <br>
+    Email: <input type="text" id="email" name="email"> </input>
+    <br>
+    <input onclick="validateForm()" type="button" value="Trimite" id="submit" name="submit"> </input>
+  </form>
+  <br>
+  <p id="message"> </p>
+
+  </body>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById('name');
+      const birthdate = document.getElementById('birthdate');
+      const age = document.getElementById('age');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+      const fields = [name, birthdate, age, email];
+
+      const errors = [];
+
+      fields.forEach(field => field.classList.remove('error-border'));
+
+      if (name.value.trim().length === 0) {
+        errors.push('nume');
+        name.classList.add('error-border');
+      }
+
+      if (birthdate.value.trim().length === 0) {
+        errors.push('data nașterii');
+        birthdate.classList.add('error-border');
+      }
+
+      if (isNaN(age.value) || age.value < 18) {
+        errors.push('vârsta');
+        age.classList.add('error-border');
+      }
+
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email.value)) {
+        errors.push('email');
+        email.classList.add('error-border');
+      }
+
+      if (errors.length === 0) {
+        message.innerHTML = 'Datele sunt completate corect.';
+        message.style.color = 'green';
+      } else {
+        message.innerHTML = 'Câmpurile ' + errors.join(' și ') + ' nu sunt completate corect.';
+        message.style.color = 'red';
+      }
+    }
+  </script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pb1</title>
+  </head>
+  <body>
+
+    <select ondblclick="moveOptions('firstSelect', 'secondSelect')" multiple=true id="firstSelect">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <select ondblclick="moveOptions('secondSelect', 'firstSelect')" multiple=true id="secondSelect">
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+
+    <script>
+      function moveOptions(sourceId, targetId) {
+        var source = document.getElementById(sourceId);
+        var target = document.getElementById(targetId);
+
+        var opt = document.createElement("option");
+        opt.text = source.options[source.selectedIndex].text;
+
+        source.remove(source.selectedIndex);
+        target.add(opt);
+      }
+    </script>
+
+  </body>
+</html>

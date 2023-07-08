@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabele</title>
+    <script src="pb4jv.js"> </script>
+
+    <style>
+        .container {
+            flex-direction: column;
+        }
+
+        table {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            width: 100%;
+            display: flex;
+        }
+
+        td, th {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <th onclick=sort(this)>Fructe</th>
+                <td>Mere</td>
+                <td>Pere</td>
+                <td>Caise</td>
+                <td>Banane</td>
+            </tr>
+            <tr>
+                <th onclick=sort(this)>Pret</th>
+                <td>3</td>
+                <td>8</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <th onclick=sort(this)>Cantitate</th>
+                <td>11</td>
+                <td>8</td>
+                <td>14</td>
+                <td>2</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th onclick=sort(this)>Legume</th>
+                <td>Rosii</td>
+                <td>Cartofi</td>
+                <td>Morcovi</td>
+                <td>Ardei</td>
+            </tr>
+            <tr>
+                <th onclick=sort(this)>Pret</th>
+                <td>12</td>
+                <td>16</td>
+                <td>7</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <th onclick=sort(this)>Cantitate</th>
+                <td>17</td>
+                <td>14</td>
+                <td>7</td>
+                <td>100</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fructe schimbatoare</title>
+    <meta charset="utf-8">
+    <style>
+        img {
+            width: 500px;
+            height: 500px;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        #prevButton{
+            width: 100px;
+            height: 50px;
+        }
+
+        #nextButton{
+            width: 100px;
+            height: 50px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Fructe</h1>
+    <ol >
+        <li class="visible">
+            <figcaption><a href="https://www.w3schools.com/js/" target="_blank">Para</a></figcaption>
+            <img src="img1.jpeg">
+        </li>
+        <li class="hidden">
+            <figcaption><a href="https://www.w3schools.com/js/" target="_blank">Mandarina</a></figcaption>
+            <img src="img2.jpeg">
+        </li>
+        <li class="hidden">
+            <figcaption><a href="https://www.w3schools.com/js/" target="_blank">Pruna</a></figcaption>
+            <img src="img3.jpeg">
+        </li>
+        <li class="hidden">
+            <figcaption><a href="https://www.w3schools.com/js/" target="_blank">Capsuna</a></figcaption>
+            <img src="img4.jpeg">
+        </li>
+        <li class="hidden">
+            <figcaption><a href="https://www.w3schools.com/js/" target="_blank">Banana</a></figcaption>
+            <img src="img5.jpeg">
+        </li>
+        <li class="hidden">
+            <figcaption><a href="https://www.w3schools.com/js/" target="_blank">Kiwi</a></figcaption>
+            <img src="img6.jpeg">
+        </li>
+        <li class="hidden">
+            <figcaption><a href="https://www.w3schools.com/js/" target="_blank">Piersica</a></figcaption>
+            <img src="img7.jpeg">
+        </li>
+    </ol>
+    <div>
+        <button id="prevButton" onclick="previous()">Previous</button>
+        <button id="nextButton" onclick="next()">Next</button>
+    </div>
+
+
+    <script>
+        let lis = document.querySelectorAll("li");
+        let currentImageIndex = 0;
+
+        function next() {
+            lis[currentImageIndex].classList.remove("visible");
+            lis[currentImageIndex].classList.add("hidden");
+            currentImageIndex++;
+            if (currentImageIndex >= lis.length) {
+                currentImageIndex = 0;
+            }
+            lis[currentImageIndex].classList.remove("hidden");
+            lis[currentImageIndex].classList.add("visible");
+        }
+
+        function previous() {
+            lis[currentImageIndex].classList.remove("visible");
+            lis[currentImageIndex].classList.add("hidden");
+            currentImageIndex--;
+            if (currentImageIndex < 0) {
+                currentImageIndex = lis.length - 1;
+            }
+            lis[currentImageIndex].classList.remove("hidden");
+            lis[currentImageIndex].classList.add("visible");
+        }
+
+        setInterval(next, 2000);
+    </script>
+</body>
+</html>
+

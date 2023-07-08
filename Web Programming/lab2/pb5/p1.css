@@ -1,0 +1,16 @@
+.grid-container {
+    border: 2px solid;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 60px;
+    row-gap: 60px;
+    padding: 0px;
+    width: 100vh;
+}
+
+.grid-item {
+    background-color:aqua;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pb1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+
+    <select multiple="multiple" id="firstSelect">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <select multiple="multiple" id="secondSelect">
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+
+    <script>
+      function moveOptions(source, target) {
+        var selectedOption = source.find(':selected');
+        target.append(selectedOption);
+      }
+
+      $(document).ready(function() {
+        $('#firstSelect').on('dblclick', function() {
+          moveOptions($(this), $('#secondSelect'));
+        });
+
+        $('#secondSelect').on('dblclick', function() {
+          moveOptions($(this), $('#firstSelect'));
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabele</title>
+    <script src="pb4jv.js"> </script>
+
+    <style>
+        .container {
+            flex-direction: column;
+        }
+
+        table {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <th onclick=sort2(this)>Fructe</th>
+                <th onclick=sort2(this)>Pret</th>
+                <th onclick=sort2(this)>Cantitate</th>
+            </tr>
+            <tr>
+                <td>Mere</td>
+                <td>3</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td>Pere</td>
+                <td>8</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>Caise</td>
+                <td>5</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>Banane</td>
+                <td>6</td>
+                <td>2</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th onclick=sort2(this)>Legume</th>
+                <th onclick=sort2(this)>Pret</th>
+                <th onclick=sort2(this)>Cantitate</th>
+            </tr>
+            <tr>
+                <td>Rosii</td>
+                <td>12</td>
+                <td>17</td>
+            </tr>
+            <tr>
+                <td>Cartofi</td>
+                <td>16</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>Morcovi</td>
+                <td>7</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>Ardei</td>
+                <td>4</td>
+                <td>100</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

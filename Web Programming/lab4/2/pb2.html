@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Formular validare</title>
+    <style>
+      .error-border {
+        border-color: red;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+
+  <form id="form">
+    Nume: <input type="text" id="name" name="name"> </input>
+    <br>
+    Data nasterii: <input type="date" id="birthdate" name="birthdate"> </input>
+    <br>
+    Varsta: <input type="text" id="age" name="age"> </input>
+    <br>
+    Email: <input type="text" id="email" name="email"> </input>
+    <br>
+    <input type="button" value="Trimite" id="submit" name="submit"> </input>
+  </form>
+  <br>
+  <p id="message"> </p>
+
+  </body>
+
+  <script>
+    function validateForm() {
+      const name = $('#name');
+      const birthdate = $('#birthdate');
+      const age = $('#age');
+      const email = $('#email');
+      const message = $('#message');
+      const fields = [name, birthdate, age, email];
+
+      const errors = [];
+
+      fields.forEach(field => field.removeClass('error-border'));
+
+      if (name.val().trim().length === 0) {
+        errors.push('nume');
+        name.addClass('error-border');
+      }
+
+      if (birthdate.val().trim().length === 0) {
+        errors.push('data nasterii');
+        birthdate.addClass('error-border');
+      }
+
+      if (isNaN(age.val()) || age.val() < 18) {
+        errors.push('varsta');
+        age.addClass('error-border');
+      }
+
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email.val())) {
+        errors.push('email');
+        email.addClass('error-border');
+      }
+
+      if (errors.length === 0) {
+        message.html('Datele sunt completate corect.').css('color', 'green');
+      } else {
+        message.html('Campurile ' + errors.join(' si ') + ' nu sunt completate corect.').css('color', 'red');
+      }
+    }
+
+    $(document).ready(function() {
+      $('#submit').on('click', function() {
+        validateForm();
+      });
+    });
+  </script>
+
+</html>

@@ -1,0 +1,60 @@
+header{
+    background-color: blue;
+    margin: 0;
+    height: 15vh;
+}
+
+h1{
+    background-color: blue;
+    margin: 0;
+    position: relative;
+    top: 30%;
+}
+
+body{
+    margin: 0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    background-color: chartreuse;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 5vh;
+}
+
+li{
+    display: table-cell;
+    border-right: solid;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div{
+    background-color: darkorange;
+    margin: 0;
+    height: 60vh;
+   
+}
+
+p.mn{
+    background-color: darkorange;
+    margin: 0;
+    position: relative;
+    top: 40%;
+}
+
+footer{
+    background-color: fuchsia;
+    margin: 0;
+    height: 20vh
+}
+
+p.ft{
+    background-color: fuchsia;
+    margin: 0;
+    position: relative;
+    top: 40%;
+}

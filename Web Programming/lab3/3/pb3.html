@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Memory Game</title>
+    <style>
+       table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        td {
+            width: 140px;
+            height: 140px;
+        }
+
+        img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+    </style>
+</head>
+<body>
+    <table id="gameBoard">
+    </table>
+
+    <script>
+        const images = [
+            'img1.jpeg', 'img2.jpeg', 'img3.jpeg', 'img4.jpeg', 'img5.jpeg', 'img6.jpeg', 'img7.jpeg', 'img8.jpeg',
+            'img1.jpeg', 'img2.jpeg', 'img3.jpeg', 'img4.jpeg', 'img5.jpeg', 'img6.jpeg', 'img7.jpeg', 'img8.jpeg'
+        ];
+
+        let firstCard = null;
+        let secondCard = null;
+        let canClick = true;
+
+        function createGameBoard() {
+            const gameBoard = document.getElementById('gameBoard');
+            const shuffledImages = shuffle(images);
+
+            for (let i = 0; i < 4; i++) {
+                const row = gameBoard.insertRow();
+                for (let j = 0; j < 4; j++) {
+                    const cell = row.insertCell();
+                    const img = document.createElement('img');
+                    img.src = shuffledImages[i * 4 + j];
+                    img.classList.add('hidden');
+                    cell.appendChild(img);
+                    cell.addEventListener('click', revealCard);
+                }
+            }
+        }
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function revealCard() {
+            if (!canClick || this.firstChild.classList.contains('visible')) return;
+
+            if (!firstCard) {
+                firstCard = this.firstChild;
+                firstCard.classList.remove('hidden');
+                firstCard.classList.add('visible');
+            } else {
+                secondCard = this.firstChild;
+                secondCard.classList.remove('hidden');
+                secondCard.classList.add('visible');
+                canClick = false;
+                setTimeout(checkMatch, 2000);
+            }
+        }
+
+        function checkMatch() {
+            if (firstCard.src === secondCard.src) {
+                firstCard.removeEventListener('click', revealCard);
+                secondCard.removeEventListener('click', revealCard);
+            } else {
+                firstCard.classList.remove('visible');
+                secondCard.classList.remove('visible');
+                firstCard.classList.add('hidden');
+                secondCard.classList.add('hidden');
+            }
+            firstCard = null;
+            secondCard = null;
+            canClick = true;
+        }
+
+        createGameBoard();
+    </script>
+</body>
+</html>
