@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:G:\An 2 sem 2\MPP\databases\iss.sqlite</property>
+        <property name="hibernate.dialect">com.example.vanzari.repository.sqlite.SQLiteDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <mapping class="com.example.vanzari.domain.SalesAgent" />
+        <mapping class="com.example.vanzari.domain.Client" />
+        <mapping class="com.example.vanzari.domain.Product"/>
+        <mapping class="com.example.vanzari.domain.Offer"/>
+
+    </session-factory>
+</hibernate-configuration>

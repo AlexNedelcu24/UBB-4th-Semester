@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <Pane prefHeight="600.0" prefWidth="224.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="62.0" layoutY="272.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="100.0" text="Place order" />
+         </children>
+      </Pane>
+   </left>
+   <right>
+      <TableView prefHeight="600.0" prefWidth="577.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </right>
+</BorderPane>

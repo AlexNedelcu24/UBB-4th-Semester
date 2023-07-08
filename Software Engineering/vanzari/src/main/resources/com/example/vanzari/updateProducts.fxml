@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <Pane prefHeight="600.0" prefWidth="361.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="116.0" layoutY="83.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="129.0" text="Delete" />
+            <Button layoutX="115.0" layoutY="438.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="131.0" text="Add" />
+            <TextField layoutX="106.0" layoutY="379.0" promptText="Quantity" />
+            <TextField layoutX="106.0" layoutY="317.0" promptText="Price" />
+            <TextField layoutX="106.0" layoutY="259.0" promptText="Name" />
+         </children>
+      </Pane>
+   </left>
+   <right>
+      <TableView prefHeight="600.0" prefWidth="594.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </right>
+</BorderPane>

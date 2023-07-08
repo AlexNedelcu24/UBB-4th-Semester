@@ -1,0 +1,8 @@
+rootProject.name = "vanzari"
+include 'Model'
+include 'Persistence'
+include 'Services'
+include 'Networking'
+include 'Server'
+include 'ClientFX'
+

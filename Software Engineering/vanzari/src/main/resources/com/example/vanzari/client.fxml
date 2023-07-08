@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <Pane prefHeight="600.0" prefWidth="403.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView layoutX="53.0" layoutY="45.0" prefHeight="488.0" prefWidth="298.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </left>
+   <right>
+      <Pane prefHeight="600.0" prefWidth="468.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView layoutX="51.0" layoutY="41.0" prefHeight="487.0" prefWidth="283.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>
