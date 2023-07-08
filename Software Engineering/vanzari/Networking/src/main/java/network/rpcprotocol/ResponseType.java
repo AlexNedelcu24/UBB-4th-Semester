@@ -1,0 +1,5 @@
+package network.rpcprotocol;
+
+public enum ResponseType {
+    OK, ERROR, NEW_OFFER, TAKE_CLIENTS, TAKE_PRODUCTS, TAKE_USER, TAKE_OFFERS, TAKE_PRODUCT, NEW_ORDER, TAKE_ORDERS , UPDATED_PRODUCT;
+}
