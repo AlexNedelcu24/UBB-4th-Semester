@@ -1,0 +1,17 @@
+<add key="ParentTableNameID" value="StadionID"/>
+		<add key="ChildTableNameID" value="MagazinOficialID"/>
+
+<add key="select" value="SELECT * FROM Stadion;"/>
+
+		<add key="select2" value="SELECT * FROM MagazinOficial WHERE StadionID = @StadionID;"/>
+
+		<add key="ChildNumberOfColumns" value="2"/>
+		<add key="ChildColumnNames" value="Locatie,NrArticole"/>
+		
+		
+		<add key ="UpdateQuery" value="Update MagazinOficial set Locatie = @Locatie, NrArticole = @NrArticole where MagazinOficialID = @id"/>
+
+		
+		<add key="InsertQuery" value="INSERT INTO MagazinOficial VALUES (@Locatie, @NrArticole, @id)"/>
+
+		<add key="DeleteQuery" value="Delete from MagazinOficial where MagazinOficialID = @id"/>

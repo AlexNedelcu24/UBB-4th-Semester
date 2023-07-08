@@ -1,0 +1,17 @@
+<add key="ParentTableNameID" value="StadionID"/>
+		<add key="ChildTableNameID" value="EchipaID"/>
+
+<add key="select" value="SELECT * FROM Stadion;"/>
+
+		<add key="select2" value="SELECT * FROM Echipa WHERE StadionID = @StadionID;"/>
+
+		<add key="ChildNumberOfColumns" value="3"/>
+		<add key="ChildColumnNames" value="Nume,Tara,Coeficient"/>
+		
+		
+		<add key ="UpdateQuery" value="Update Echipa set Nume = @Nume, Tara = @Tara, Coeficient = @Coeficient where EchipaID = @id"/>
+
+		
+		<add key="InsertQuery" value="INSERT INTO Echipa VALUES (@Nume, @Tara, @Coeficient, @id)"/>
+
+		<add key="DeleteQuery" value="Delete from Echipa where EchipaID = @id"/>
